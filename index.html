@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vídeos | Regional Brasil - Grupo de Capoeira</title>
+    <meta name="description" content="Vídeos do Grupo de Capoeira Regional Brasil - Aulas, apresentações, eventos e rodas especiais">
+    
+    <!-- Usando as mesmas fontes e ícones do site principal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Mantendo as mesmas variáveis de cores do site principal */
+        :root {
+            --primary: #2E5EAA;
+            --secondary: #F9C80E;
+            --accent: #E15554;
+            --dark: #1A1A2E;
+            --light: #F8F9FA;
+            --text: #333333;
+            --light-rgb: 248, 249, 250; /* RGB for --light */
+            --white-rgb-val: 255, 255, 255;
+            --text-light: #6C757D;
+            --white: #FFFFFF;
+            --transition: all 0.3s ease;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+        }
+
+        [data-theme="dark"] {
+            --primary: #3A86FF;
+            --secondary: #FFBE0B;
+            --accent: #FF006E;
+            --dark: #121212;
+            --light: #1E1E1E;
+            --text: #E1E1E1;
+            --light-rgb: 30, 30, 30; /* RGB for --light */
+            --text-light: #A0A0A0;
+            --white: #121212;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+            transition: var(--transition);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header - Mantendo igual ao site principal */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(var(--white), 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            background-color: rgba(var(--white), 0.98);
+            box-shadow: var(--shadow-md);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            color: var(--primary);
+        }
+
+        .logo-text span {
+            color: var(--accent);
+            font-size: 0.9rem;
+            display: block;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section adaptada para vídeos */
+        .video-hero {
+            height: 60vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            /* Um verde escuro que remete à bandeira do Brasil, combinando com o tema */
+            background: linear-gradient(rgba(0, 71, 49, 0.75), rgba(0, 48, 33, 0.85)), url('img/video-bg.jpg') center/cover no-repeat;
+            color: var(--white);
+            text-align: center;
+            margin-top: 80px; /* Compensar o header fixo */
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        /* Seção de Vídeos */
+        .video-section {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 1rem auto;
+            border-radius: var(--radius-md);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background-color: var(--light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-title {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .video-desc {
+            color: var(--text);
+            margin-bottom: 1rem;
+            transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, margin-bottom 0.4s ease-in-out;
+            overflow: hidden;
+            position: relative; /* Para o efeito de fade */
+        }
+
+        .video-desc.collapsed {
+            /* Mostra ~3 linhas. line-height é 1.6. 1.6 * 3 = 4.8em */
+            max-height: 4.8em;
+        }
+
+        .video-desc:not(.collapsed) {
+            max-height: 500px; /* Altura suficiente para o texto completo */
+        }
+
+        /* Efeito de fade no final do texto recolhido para indicar que há mais conteúdo */
+        .video-desc.collapsed::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2em;
+            /* Usando RGB para um degradê perfeito que funciona em ambos os temas */
+            background: linear-gradient(to bottom, rgba(var(--light-rgb), 0), rgb(var(--light-rgb)) 85%);
+            pointer-events: none;
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        .video-desc:not(.collapsed)::after {
+            opacity: 0;
+        }
+
+        .video-category {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: var(--secondary);
+            color: var(--dark);
+            border-radius: var(--radius-md);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Filtros */
+        .video-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.5rem;
+            border-radius: var(--radius-md);
+            background-color: var(--light);
+            color: var(--text);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .toggle-desc-btn {
+            cursor: pointer;
+            transition: color var(--transition);
+        }
+
+        .toggle-desc-btn:hover {
+            color: var(--primary);
+        }
+
+        /* Playlist Section */
+        .playlist-section {
+            padding: 5rem 0;
+            background-color: var(--light);
+        }
+
+        .playlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .playlist-card {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .playlist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .playlist-img {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .playlist-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .playlist-card:hover .playlist-img img {
+            transform: scale(1.1);
+        }
+
+        .playlist-count {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: var(--white);
+            padding: 0.3rem 0.6rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+        }
+
+        .playlist-info {
+            padding: 1.5rem;
+        }
+
+        .playlist-title {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer - Igual ao site principal */
+        .footer {
+            background-color: var(--dark);
+            color: rgba(var(--white-rgb-val), 0.9);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-brand-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            height: 40px; /* Logo pequeno, como solicitado */
+            flex-shrink: 0; /* Impede que o logo seja espremido */
+        }
+
+        .footer-brand-info p {
+            margin: 0;
+            line-height: 1.4; /* Melhora a legibilidade do texto em duas linhas */
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(var(--white-rgb-val), 0.7);
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(var(--white-rgb-val), 0.1);
+            color: rgba(var(--white-rgb-val), 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Botão de tema */
+        .theme-switcher {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            z-index: 999;
+            transition: var(--transition);
+        }
+
+        .theme-switcher:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Responsivo */
+        @media (max-width: 992px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 3rem;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .hamburger {
+                display: block;
+                width: 30px;
+                height: 20px;
+                position: relative;
+                z-index: 1000;
+            }
+            
+            .hamburger span {
+                display: block;
+                width: 100%;
+                height: 3px;
+                background-color: var(--primary);
+                position: absolute;
+                left: 0;
+                transition: var(--transition);
+            }
+            
+            .hamburger span:nth-child(1) {
+                top: 0;
+            }
+            
+            .hamburger span:nth-child(2) {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            
+            .hamburger span:nth-child(3) {
+                bottom: 0;
+            }
+            
+            .hamburger.active span:nth-child(1) {
+                top: 50%;
+                transform: translateY(-50%) rotate(45deg);
+            }
+            
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active span:nth-child(3) {
+                bottom: 50%;
+                transform: translateY(50%) rotate(-45deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .video-hero {
+                height: 50vh;
+                min-height: 400px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .video-section, .playlist-section {
+                padding: 3rem 0;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .video-filters {
+                gap: 0.5rem;
+            }
+            
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="navbar-left">
+                    <a href="index.html" class="logo">
+                        <img src="logotipo.jpg" alt="Regional Brasil">
+                        <div class="logo-text">
+                            <h1>Regional Brasil</h1>
+                            <span>Grupo de Capoeira</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <ul class="nav-menu">
+                </ul>
+
+                <div class="nav-controls">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="video-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Nossos Vídeos</h1>
+                <p class="hero-subtitle">Assista às nossas aulas, apresentações e momentos especiais</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vídeos em Destaque -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title">Vídeos em Destaque</h2>
+            
+            <div class="video-filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="roda">Roda</button>
+                <button class="filter-btn" data-filter="cultura">Cultura</button>
+                <button class="filter-btn" data-filter="eventos">Eventos</button>
+                <button class="filter-btn" data-filter="floreio">Floreio</button>
+            </div>
+            
+            <div class="video-grid">
+                <!-- Vídeo 1 -->
+                <div class="video-card" data-category="cultura">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/2BcdGl9yDNU" title="A Lenda do Berimbau" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-category">Cultura</span>
+                        <h3 class="video-title">A lenda do berimbau</h3>
+                        <div class="video-meta">
+                            <span><i class="far fa-calendar-alt"></i> @cila_arts</span>
+                            <span class="toggle-desc-btn" title="Mostrar/Ocultar descrição"><i class="far fa-eye"></i></span>
+                        </div>
+                        <p class="video-desc">Você conhece a lenda do berimbau? Diz a tradição que, há muito tempo, nos quilombos e aldeias africanas trazidas ao Brasil pelos negros escravizados, existia um ancião sábio e silencioso chamado Mestre Zamurá. Ele era respeitado por sua sabedoria, sua ligação com os orixás e por conhecer uma dança-luta secreta, que mais tarde se tornaria a capoeira.
+
+Certo dia, após uma noite de sonho profundo, Mestre Zamurá caminhou pela mata e ouviu um som misterioso vindo do vento que soprava por entre os bambus. O som era ritmado, vibrante e parecia ter vida própria. Ao seguir o som, encontrou um galho curvo de madeira, oco por dentro, com uma corda natural vibrando entre as extremidades. Ao lado, repousava uma cabaça seca. Ao juntar os dois elementos e encostar uma pedra na corda, surgiu o som do berimbau.
+
+Os antigos acreditavam que aquele som era a voz dos ancestrais, guiando os passos dos capoeiristas e invocando a proteção dos orixás. Diz-se que, ao tocar o berimbau, o capoeirista não está apenas marcando o ritmo: está chamando os espíritos guerreiros, contando histórias de resistência e renovando o elo com as raízes africanas.</p>
+                    </div>
+                </div>
+                
+                <!-- Vídeo 2 -->
+                <div class="video-card" data-category="roda">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/CEZ4-4UZ69c" title="Roda de Capoeira no Ginásio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-category">Roda</span>
+                        <h3 class="video-title">ginásio esporte</h3>
+                        <div class="video-meta">
+                            <span><i class="far fa-calendar-alt"></i>@ginásio_esporte</span>
+                            <span class="toggle-desc-btn" title="Mostrar/Ocultar descrição"><i class="far fa-eye"></i></span>
+                        </div>
+                        <p class="video-desc">Roda no ginásio esportes brasilandia MS.</p>
+                    </div>
+                </div>
+                
+                <!-- Vídeo 3 -->
+                <div class="video-card" data-category="eventos">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/3tdxkkbEZk0" title="Evento de Capoeira em Brasilândia" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-category">Evento</span>
+                        <h3 class="video-title">Evento brasilandia - Cerimônia Completa</h3>
+                        <div class="video-meta">
+                            <span><i class="far fa-calendar-alt"></i> regional_brasil</span>
+                            <span class="toggle-desc-btn" title="Mostrar/Ocultar descrição"><i class="far fa-eye"></i></span>
+                        </div>
+                        <p class="video-desc">Registros do evento brasilandia.</p>
+                    </div>
+                </div>
+                
+                <!-- Vídeo 4 -->
+                <div class="video-card" data-category="floreio">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/XDwqQPB0qgk" title="Demonstração de Floreio" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-category">Floreio</span>
+                        <h3 class="video-title">Demonstração de Floreio</h3>
+                        <div class="video-meta">
+                            <span><i class="far fa-calendar-alt"></i>@kevin</span>
+                            <span class="toggle-desc-btn" title="Mostrar/Ocultar descrição"><i class="far fa-eye"></i></span>
+                        </div>
+                        <p class="video-desc">Uma sequência de movimentos acrobáticos e floreios para inspirar seu treino.</p>
+                    </div>
+                </div>
+                
+                <!-- Vídeo 5 -->
+                <div class="video-card" data-category="cultura">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/qnAQIpeA0M0" title="Demonstração de Mestre Bimba" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-category">Cultura</span>
+                        <h3 class="video-title"> Mestre Bimba</h3>
+                        <div class="video-meta">
+                            <span><i class="far fa-calendar-alt"></i> mestre bimba</span>
+                            <span class="toggle-desc-btn" title="Mostrar/Ocultar descrição"><i class="far fa-eye"></i></span>
+                        </div>
+                        <p class="video-desc">Demonstração resumida de Mestre Bimba.</p>
+                    </div>
+                </div>
+                
+                <!-- Vídeo 6 -->
+                <div class="video-card" data-category="eventos">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/_2w0Pzqx434" title="Evento Brasilândia de Capoeira" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-category">Evento</span>
+                        <h3 class="video-title">evento brasilandia de Capoeira </h3>
+                        <div class="video-meta">
+                            <span><i class="far fa-calendar-alt"></i> regional_brasil</span>
+                            <span class="toggle-desc-btn" title="Mostrar/Ocultar descrição"><i class="far fa-eye"></i></span>
+                        </div>
+                        <p class="video-desc">Evento brasilandia de Capoeira.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-brand-info">
+                        <img src="logotipo2.jpg" alt="Logo Associação Arte e Movimento" class="footer-logo">
+                        <p>Associação Cultural de Capoeira<br>Arte e Movimento</p>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 thyesko menão. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Switcher -->
+    <div class="theme-switcher" id="themeSwitcher">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Menu Mobile
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Header scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+        
+        // Filtro de Vídeos
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const videoCards = document.querySelectorAll('.video-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active de todos os botões
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                // Adiciona active ao botão clicado
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                videoCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Toggle Video Description
+        // Ação para mostrar/ocultar a descrição dos vídeos
+        document.querySelectorAll('.toggle-desc-btn').forEach(toggleBtn => {
+            const card = toggleBtn.closest('.video-card');
+            const description = card.querySelector('.video-desc');
+            const toggleIcon = toggleBtn.querySelector('i');
+
+            if (description && toggleIcon) {
+                // Inicia o texto recolhido por padrão e define o ícone correto
+                description.classList.add('collapsed');
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+
+                toggleBtn.addEventListener('click', () => {
+                    description.classList.toggle('collapsed');
+
+                    // Alterna o ícone entre olho aberto (para expandir) e fechado (para recolher)
+                    toggleIcon.classList.toggle('fa-eye');
+                    toggleIcon.classList.toggle('fa-eye-slash');
+                });
+            }
+        });
+
+        // Theme Switcher
+        const themeSwitcher = document.getElementById('themeSwitcher');
+        const themeIcon = themeSwitcher.querySelector('i');
+        
+        themeSwitcher.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            
+            if (newTheme === 'dark') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+            
+            // Salvar preferência no localStorage
+            localStorage.setItem('theme', newTheme);
+        });
+        
+        // Verificar tema salvo
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        if (savedTheme === 'dark') {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+    </script>
+</body>
+</html>
