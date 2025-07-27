@@ -260,6 +260,21 @@
             border: none;
         }
 
+        /* Estilos para o embed do Instagram */
+        .video-container.instagram-embed {
+            padding-bottom: 0; /* Remove o aspect-ratio padrão */
+            height: auto;      /* Deixa o conteúdo ditar a altura */
+            background-color: var(--white); /* Fundo para combinar com o embed */
+            padding: 8px;      /* Pequeno espaçamento interno */
+        }
+
+        .video-container.instagram-embed .instagram-media {
+            margin: 0 auto !important; /* Centraliza o embed */
+            box-shadow: none !important; /* Remove sombra do embed */
+            border-radius: 0 !important; /* Remove borda do embed */
+            width: calc(100% - 16px) !important; /* Ajusta a largura para o padding */
+        }
+
         .video-info {
             padding: 1.5rem;
         }
@@ -355,68 +370,6 @@
 
         .toggle-desc-btn:hover {
             color: var(--primary);
-        }
-
-        /* Playlist Section */
-        .playlist-section {
-            padding: 5rem 0;
-            background-color: var(--light);
-        }
-
-        .playlist-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .playlist-card {
-            background-color: var(--white);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-
-        .playlist-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .playlist-img {
-            height: 180px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .playlist-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .playlist-card:hover .playlist-img img {
-            transform: scale(1.1);
-        }
-
-        .playlist-count {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: var(--white);
-            padding: 0.3rem 0.6rem;
-            border-radius: var(--radius-sm);
-            font-size: 0.8rem;
-        }
-
-        .playlist-info {
-            padding: 1.5rem;
-        }
-
-        .playlist-title {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
         }
 
         /* Footer - Igual ao site principal */
@@ -579,7 +532,7 @@
                 font-size: 2.5rem;
             }
             
-            .video-section, .playlist-section {
+            .video-section {
                 padding: 3rem 0;
             }
             
@@ -794,6 +747,181 @@ https://mestrediolinodebrito.blogspot.com/2011/12/landa-do-berimbau.html?m=1
 🤖 Referências também utilizadas por fonte de pesquisa através de inteligência artificial</p>
                     </div>
                 </div>
+
+                <!-- Vídeo 8 (Lenda do Maculelê) -->
+                <div class="video-card" data-category="cultura">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/PZYi2vsjmyA" title="A Lenda do Maculelê" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-category">Cultura</span>
+                        <h3 class="video-title">A lenda do Maculelê</h3>
+                        <div class="video-meta">
+                            <span><i class="far fa-calendar-alt"></i> Priscila Dameão</span>
+                            <span class="toggle-desc-btn" title="Mostrar/Ocultar descrição"><i class="far fa-eye"></i></span>
+                        </div>
+                        <p class="video-desc">✨ A Lenda do Maculelê ✨
+
+Você já ouviu falar do Maculelê? 
+É uma dança afro-indígena com bastões, cheia de ritmo e história! Muito comum no interior da Bahia e no Rio de Janeiro, ela tem raízes profundas que misturam luta, cultura e resistência.
+
+Conta a lenda que um povo africano chamado cucumbi, apaixonado por música e dança guerreira, trouxe para o Brasil a tradição do Makélelè — uma palavra do idioma quicongo que significa barulho, algazarra, vozeiro.
+
+Um jovem escravizado, chamado carinhosamente de Maculelê, aprendeu desde cedo a dançar com os bastões. Mas por conta de uma doença de pele, fugiu ainda criança e foi acolhido por uma tribo indígena Aymoré. Escondido na oca do pajé, se curou com o tempo.
+
+Anos depois, quando a aldeia foi atacada, ele saiu do esconderijo e, com seus bastões de bambu, defendeu mulheres e crianças. Sua coragem foi celebrada com uma grande festa — e assim nasceu a dança que leva seu nome, unindo os ritmos africanos e indígenas: Maculelê. 💚✨
+
+
+
+---</p>
+                    </div>
+                </div>
+
+                <!-- Novo Vídeo de Cultura -->
+                <div class="video-card" data-category="cultura">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/JLPRvdMS0zY" title="Dança Carimbó" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-category">Cultura</span>
+                        <h3 class="video-title">Dança Carimbó</h3>
+                        <div class="video-meta">
+                            <span><i class="far fa-calendar-alt"></i> Evento de Capoeira em Panorama-SP</span>
+                            <span class="toggle-desc-btn" title="Mostrar/Ocultar descrição"><i class="far fa-eye"></i></span>
+                        </div>
+                        <p class="video-desc">Qual a origem da dança carimbó?
+O carimbó do Pará foi trazido ao Brasil pelos escravos africanos. Posteriormente, foram incorporadas influências indígenas e europeias, especialmente ibéricas. O hábito da dança veio do costume dos agricultores e pescadores que, ao fim de mais um dia de trabalho, dançavam ao ritmo do tambor..</p>
+                    </div>
+                </div>
+
+                <!-- Vídeo 9 (Novo Evento) -->
+                <div class="video-card" data-category="eventos">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/q_TQnXA0wTE" title="Evento Grupo Dandara (Panorama-SP)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-category">Eventos</span>
+                        <h3 class="video-title">Evento Grupo Dandara(Panorama-SP)</h3>
+                        <div class="video-meta">
+                            <span><i class="far fa-calendar-alt"></i>Professora Angelica</span>
+                            <span class="toggle-desc-btn" title="Mostrar/Ocultar descrição"><i class="far fa-eye"></i></span>
+                        </div>
+                        <p class="video-desc">Evento do grupo de capoeira  Dandara que celebra a cultura da capoeira com apresentações e troca de graduações.</p>
+                    </div>
+                </div>
+
+                <!-- Vídeo 10 (Novo Evento) -->
+                <div class="video-card" data-category="eventos">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/bb_HIPB8eNk" title="Participação dos Alunos no Evento Dandara" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-category">Eventos</span>
+                        <h3 class="video-title">Evento Dandara (Panorama-SP)</h3>
+                        <div class="video-meta">
+                            <span><i class="far fa-calendar-alt"></i> regional_brasil</span>
+                            <span class="toggle-desc-btn" title="Mostrar/Ocultar descrição"><i class="far fa-eye"></i></span>
+                        </div>
+                        <p class="video-desc">participação especial de nossos alunos do Grupo Regional Brasil</p>
+                    </div>
+                </div>
+
+                <!-- Novo Vídeo de Evento 1 -->
+                <div class="video-card" data-category="eventos">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/LWjvCUqv1iM" title="Apresentação no Evento Dandara" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-category">Eventos</span>
+                        <h3 class="video-title">Evento Dandara (Panorama-SP)</h3>
+                        <div class="video-meta">
+                            <span><i class="far fa-calendar-alt"></i> regional_brasil</span>
+                            <span class="toggle-desc-btn" title="Mostrar/Ocultar descrição"><i class="far fa-eye"></i></span>
+                        </div>
+                        <p class="video-desc">Participação especial de nossos alunos do Grupo Regional Brasil.</p>
+                    </div>
+                </div>
+
+                <!-- Novo Vídeo de Evento 2 -->
+                <div class="video-card" data-category="eventos">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/OslBS5VMUX8" title="Mais do Evento Dandara" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-category">Eventos</span>
+                        <h3 class="video-title">Evento Dandara (Panorama-SP)</h3>
+                        <div class="video-meta">
+                            <span><i class="far fa-calendar-alt"></i> regional_brasil</span>
+                            <span class="toggle-desc-btn" title="Mostrar/Ocultar descrição"><i class="far fa-eye"></i></span>
+                        </div>
+                        <p class="video-desc">Participação especial de nossos alunos do Grupo regional Brasil.</p>
+                    </div>
+                </div>
+
+                <!-- Novo Vídeo de Evento 3 -->
+                <div class="video-card" data-category="eventos">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/ufwXzoEv4-s" title="Roda de Capoeira no Evento Dandara" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-category">Eventos</span>
+                        <h3 class="video-title">Evento Dandara (Panorama-SP)</h3>
+                        <div class="video-meta">
+                            <span><i class="far fa-calendar-alt"></i> regional_brasil</span>
+                            <span class="toggle-desc-btn" title="Mostrar/Ocultar descrição"><i class="far fa-eye"></i></span>
+                        </div>
+                        <p class="video-desc">Participação especial de nossos alunos do Grupo regional Brasil.</p>
+                    </div>
+                </div>
+
+                <!-- Novo Vídeo de Evento 4 -->
+                <div class="video-card" data-category="eventos">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/2LGYvMaEvuQ" title="Encerramento do Evento Dandara" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-category">Eventos</span>
+                        <h3 class="video-title">Evento Dandara (Panorama-SP)</h3>
+                        <div class="video-meta">
+                            <span><i class="far fa-calendar-alt"></i> regional_brasil</span>
+                            <span class="toggle-desc-btn" title="Mostrar/Ocultar descrição"><i class="far fa-eye"></i></span>
+                        </div>
+                        <p class="video-desc">Participação especial de nossos alunos do Grupo regional Brasil.</p>
+                    </div>
+                </div>
+
+                <!-- Novo Vídeo de Evento 5 -->
+                <div class="video-card" data-category="eventos">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/6AKTdvcDst8" title="Evento Pretas que Brilham" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-category">Eventos</span>
+                        <h3 class="video-title">Evento Pretas que Brilham (Brasilândia)</h3>
+                        <div class="video-meta">
+                            <span><i class="far fa-calendar-alt"></i>Centro-Conviver</span>
+                            <span class="toggle-desc-btn" title="Mostrar/Ocultar descrição"><i class="far fa-eye"></i></span>
+                        </div>
+                        <p class="video-desc">Participação do Grupo regional Brasil no evento Pretas que Brilham, realizada em 25/07/2025.</p>
+                    </div>
+                </div>
+
+                <!-- Novo Vídeo de Evento 6 -->
+                <div class="video-card" data-category="cultura">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/U5KBw-9YPwA" title="Samba de Roda" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-category">Cultura</span>
+                        <h3 class="video-title">Samba de Roda</h3>
+                        <div class="video-meta">
+                            <span><i class="far fa-calendar-alt"></i> regional_brasil</span>
+                            <span class="toggle-desc-btn" title="Mostrar/Ocultar descrição"><i class="far fa-eye"></i></span>
+                        </div>
+                        <p class="video-desc">Samba de Roda é uma expressão cultural brasileira que combina música, dança e poesia, originária da tradição afro-brasileira.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -821,6 +949,9 @@ https://mestrediolinodebrito.blogspot.com/2011/12/landa-do-berimbau.html?m=1
     <div class="theme-switcher" id="themeSwitcher">
         <i class="fas fa-moon"></i>
     </div>
+
+    <!-- Script do Instagram (necessário para renderizar o vídeo) -->
+    <script async src="//www.instagram.com/embed.js"></script>
 
     <!-- Scripts -->
     <script>
